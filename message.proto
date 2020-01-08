@@ -2,13 +2,15 @@ syntax = "proto3";
 package chat;
 
 service ChatService {
-    rpc chatter(stream Message) returns (stream Message) {}
+    rpc sendMes(Message) returns (ReMessage) {}
 }
 
 message Message {
-    string user = 2;
-                                        string body = 1;
+    string body = 1;
 }
 
-
+message ReMessage {
+    string body = 1;
+    int32 count = 2;
+}
 

@@ -24,6 +24,37 @@ var _ = math.Inf
 // proto package needs to be updated.
 const _ = proto.ProtoPackageIsVersion3 // please upgrade the proto package
 
+type Empty struct {
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *Empty) Reset()         { *m = Empty{} }
+func (m *Empty) String() string { return proto.CompactTextString(m) }
+func (*Empty) ProtoMessage()    {}
+func (*Empty) Descriptor() ([]byte, []int) {
+	return fileDescriptor_33c57e4bae7b9afd, []int{0}
+}
+
+func (m *Empty) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_Empty.Unmarshal(m, b)
+}
+func (m *Empty) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_Empty.Marshal(b, m, deterministic)
+}
+func (m *Empty) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Empty.Merge(m, src)
+}
+func (m *Empty) XXX_Size() int {
+	return xxx_messageInfo_Empty.Size(m)
+}
+func (m *Empty) XXX_DiscardUnknown() {
+	xxx_messageInfo_Empty.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_Empty proto.InternalMessageInfo
+
 type Message struct {
 	Body                 string   `protobuf:"bytes,1,opt,name=body,proto3" json:"body,omitempty"`
 	XXX_NoUnkeyedLiteral struct{} `json:"-"`
@@ -35,7 +66,7 @@ func (m *Message) Reset()         { *m = Message{} }
 func (m *Message) String() string { return proto.CompactTextString(m) }
 func (*Message) ProtoMessage()    {}
 func (*Message) Descriptor() ([]byte, []int) {
-	return fileDescriptor_33c57e4bae7b9afd, []int{0}
+	return fileDescriptor_33c57e4bae7b9afd, []int{1}
 }
 
 func (m *Message) XXX_Unmarshal(b []byte) error {
@@ -75,7 +106,7 @@ func (m *ReMessage) Reset()         { *m = ReMessage{} }
 func (m *ReMessage) String() string { return proto.CompactTextString(m) }
 func (*ReMessage) ProtoMessage()    {}
 func (*ReMessage) Descriptor() ([]byte, []int) {
-	return fileDescriptor_33c57e4bae7b9afd, []int{1}
+	return fileDescriptor_33c57e4bae7b9afd, []int{2}
 }
 
 func (m *ReMessage) XXX_Unmarshal(b []byte) error {
@@ -111,6 +142,7 @@ func (m *ReMessage) GetCount() int32 {
 }
 
 func init() {
+	proto.RegisterType((*Empty)(nil), "chat.Empty")
 	proto.RegisterType((*Message)(nil), "chat.Message")
 	proto.RegisterType((*ReMessage)(nil), "chat.ReMessage")
 }
@@ -118,16 +150,18 @@ func init() {
 func init() { proto.RegisterFile("message.proto", fileDescriptor_33c57e4bae7b9afd) }
 
 var fileDescriptor_33c57e4bae7b9afd = []byte{
-	// 142 bytes of a gzipped FileDescriptorProto
+	// 172 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0xcd, 0x4d, 0x2d, 0x2e,
 	0x4e, 0x4c, 0x4f, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0x49, 0xce, 0x48, 0x2c, 0x51,
-	0x92, 0xe5, 0x62, 0xf7, 0x85, 0x08, 0x0b, 0x09, 0x71, 0xb1, 0x24, 0xe5, 0xa7, 0x54, 0x4a, 0x30,
-	0x2a, 0x30, 0x6a, 0x70, 0x06, 0x81, 0xd9, 0x4a, 0xa6, 0x5c, 0x9c, 0x41, 0xa9, 0x78, 0x14, 0x08,
-	0x89, 0x70, 0xb1, 0x26, 0xe7, 0x97, 0xe6, 0x95, 0x48, 0x30, 0x29, 0x30, 0x6a, 0xb0, 0x06, 0x41,
-	0x38, 0x46, 0x56, 0x5c, 0xdc, 0xce, 0x19, 0x89, 0x25, 0xc1, 0xa9, 0x45, 0x65, 0x99, 0xc9, 0xa9,
-	0x42, 0xda, 0x5c, 0xec, 0xc5, 0xa9, 0x79, 0x29, 0xbe, 0xa9, 0xc5, 0x42, 0xbc, 0x7a, 0x20, 0x6b,
-	0xf5, 0xa0, 0x46, 0x4a, 0xf1, 0x43, 0xb8, 0x70, 0x3b, 0x94, 0x18, 0x92, 0xd8, 0xc0, 0xce, 0x33,
-	0x06, 0x04, 0x00, 0x00, 0xff, 0xff, 0x1e, 0x4b, 0x80, 0xd9, 0xaf, 0x00, 0x00, 0x00,
+	0x62, 0xe7, 0x62, 0x75, 0xcd, 0x2d, 0x28, 0xa9, 0x54, 0x92, 0xe5, 0x62, 0xf7, 0x85, 0xc8, 0x0b,
+	0x09, 0x71, 0xb1, 0x24, 0xe5, 0xa7, 0x54, 0x4a, 0x30, 0x2a, 0x30, 0x6a, 0x70, 0x06, 0x81, 0xd9,
+	0x4a, 0xa6, 0x5c, 0x9c, 0x41, 0xa9, 0x78, 0x14, 0x08, 0x89, 0x70, 0xb1, 0x26, 0xe7, 0x97, 0xe6,
+	0x95, 0x48, 0x30, 0x29, 0x30, 0x6a, 0xb0, 0x06, 0x41, 0x38, 0x46, 0x39, 0x5c, 0xdc, 0xce, 0x19,
+	0x89, 0x25, 0xc1, 0xa9, 0x45, 0x65, 0x99, 0xc9, 0xa9, 0x42, 0x9a, 0x5c, 0xec, 0xc5, 0xa9, 0x79,
+	0x29, 0xbe, 0xa9, 0xc5, 0x42, 0xbc, 0x7a, 0x20, 0xfb, 0xf5, 0xa0, 0x46, 0x4a, 0xf1, 0x43, 0xb8,
+	0x08, 0x3b, 0x8c, 0xb8, 0x04, 0x92, 0x72, 0xf2, 0x13, 0x53, 0x92, 0x13, 0x8b, 0x4b, 0x60, 0x62,
+	0xdc, 0x10, 0x45, 0x60, 0x07, 0x63, 0xe8, 0x30, 0x60, 0x4c, 0x62, 0x03, 0xfb, 0xcc, 0x18, 0x10,
+	0x00, 0x00, 0xff, 0xff, 0xb7, 0x27, 0x1a, 0xe7, 0xea, 0x00, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -143,6 +177,7 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type ChatServiceClient interface {
 	SendMes(ctx context.Context, in *Message, opts ...grpc.CallOption) (*ReMessage, error)
+	BloadcastMessage(ctx context.Context, in *Empty, opts ...grpc.CallOption) (ChatService_BloadcastMessageClient, error)
 }
 
 type chatServiceClient struct {
@@ -162,9 +197,42 @@ func (c *chatServiceClient) SendMes(ctx context.Context, in *Message, opts ...gr
 	return out, nil
 }
 
+func (c *chatServiceClient) BloadcastMessage(ctx context.Context, in *Empty, opts ...grpc.CallOption) (ChatService_BloadcastMessageClient, error) {
+	stream, err := c.cc.NewStream(ctx, &_ChatService_serviceDesc.Streams[0], "/chat.ChatService/bloadcastMessage", opts...)
+	if err != nil {
+		return nil, err
+	}
+	x := &chatServiceBloadcastMessageClient{stream}
+	if err := x.ClientStream.SendMsg(in); err != nil {
+		return nil, err
+	}
+	if err := x.ClientStream.CloseSend(); err != nil {
+		return nil, err
+	}
+	return x, nil
+}
+
+type ChatService_BloadcastMessageClient interface {
+	Recv() (*ReMessage, error)
+	grpc.ClientStream
+}
+
+type chatServiceBloadcastMessageClient struct {
+	grpc.ClientStream
+}
+
+func (x *chatServiceBloadcastMessageClient) Recv() (*ReMessage, error) {
+	m := new(ReMessage)
+	if err := x.ClientStream.RecvMsg(m); err != nil {
+		return nil, err
+	}
+	return m, nil
+}
+
 // ChatServiceServer is the server API for ChatService service.
 type ChatServiceServer interface {
 	SendMes(context.Context, *Message) (*ReMessage, error)
+	BloadcastMessage(*Empty, ChatService_BloadcastMessageServer) error
 }
 
 // UnimplementedChatServiceServer can be embedded to have forward compatible implementations.
@@ -173,6 +241,9 @@ type UnimplementedChatServiceServer struct {
 
 func (*UnimplementedChatServiceServer) SendMes(ctx context.Context, req *Message) (*ReMessage, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method SendMes not implemented")
+}
+func (*UnimplementedChatServiceServer) BloadcastMessage(req *Empty, srv ChatService_BloadcastMessageServer) error {
+	return status.Errorf(codes.Unimplemented, "method BloadcastMessage not implemented")
 }
 
 func RegisterChatServiceServer(s *grpc.Server, srv ChatServiceServer) {
@@ -197,6 +268,27 @@ func _ChatService_SendMes_Handler(srv interface{}, ctx context.Context, dec func
 	return interceptor(ctx, in, info, handler)
 }
 
+func _ChatService_BloadcastMessage_Handler(srv interface{}, stream grpc.ServerStream) error {
+	m := new(Empty)
+	if err := stream.RecvMsg(m); err != nil {
+		return err
+	}
+	return srv.(ChatServiceServer).BloadcastMessage(m, &chatServiceBloadcastMessageServer{stream})
+}
+
+type ChatService_BloadcastMessageServer interface {
+	Send(*ReMessage) error
+	grpc.ServerStream
+}
+
+type chatServiceBloadcastMessageServer struct {
+	grpc.ServerStream
+}
+
+func (x *chatServiceBloadcastMessageServer) Send(m *ReMessage) error {
+	return x.ServerStream.SendMsg(m)
+}
+
 var _ChatService_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "chat.ChatService",
 	HandlerType: (*ChatServiceServer)(nil),
@@ -206,6 +298,12 @@ var _ChatService_serviceDesc = grpc.ServiceDesc{
 			Handler:    _ChatService_SendMes_Handler,
 		},
 	},
-	Streams:  []grpc.StreamDesc{},
+	Streams: []grpc.StreamDesc{
+		{
+			StreamName:    "bloadcastMessage",
+			Handler:       _ChatService_BloadcastMessage_Handler,
+			ServerStreams: true,
+		},
+	},
 	Metadata: "message.proto",
 }

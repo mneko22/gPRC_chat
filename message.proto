@@ -2,7 +2,11 @@ syntax = "proto3";
 package chat;
 
 service ChatService {
-    rpc sendMes(Message) returns (ReMessage) {}
+    rpc sendMes(Message) returns (ReMessage);
+    rpc bloadcastMessage(Empty) returns (stream ReMessage);
+}
+
+message Empty {
 }
 
 message Message {
